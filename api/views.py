@@ -126,7 +126,7 @@ class QueryES(View):
 
         raw_query = request.GET.get("query")
         if not raw_query:
-            query = self.init_query()["query"]
+            query = self.init_query()
         else:
             query = json.loads(raw_query)["es_query"]
             query["size"] = 10000

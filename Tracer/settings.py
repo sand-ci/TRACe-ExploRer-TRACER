@@ -53,6 +53,8 @@ ES_INDEX = config.get("ES_INDEX")
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
     'api',
     'website',
     'django.contrib.staticfiles',
@@ -73,7 +75,7 @@ ROOT_URLCONF = 'Tracer.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
