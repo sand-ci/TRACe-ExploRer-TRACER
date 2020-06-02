@@ -16,8 +16,8 @@ spec:
         k8s-app: perfsonar-web
     spec:
       containers:
-      - name: perfsonar-platform
-        image: sandci/ps-platform:latest
+      - name: tracer
+        image: sandci/tracer:latest
         imagePullPolicy: Always
         # command: ["python"]
         # args: ["manage.py runserver 0.0.0.0:80"]
