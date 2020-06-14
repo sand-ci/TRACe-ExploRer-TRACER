@@ -1,0 +1,49 @@
+.filter-preview {
+  position: absolute;
+  z-index: 25;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.filter-preview-item {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 3px;
+  padding: 3px;
+  margin: 2px;
+  color: #000;
+  transition: background-color .5s linear;
+}
+
+.filter-preview-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 535px;
+}
+
+.filter-preview-item:hover {
+  background-color: #e0e0e0;
+}
+
+.filter-preview button {
+  background-color: transparent;
+  color: inherit;
+  font-size: 14px;
+}
+
+.filter-preview-item .im-history {
+  color: inherit;
+  font-size: 18px;
+  padding: 2px;
+}
+
+.filter-preview-item .im-arrow-right {
+  color: inherit;
+  font-size: 12px;
+}

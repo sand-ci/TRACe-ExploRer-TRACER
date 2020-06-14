@@ -1,0 +1,99 @@
+.time-query-wrapper {
+  position: relative;
+  margin: 10px;
+  background-color: #fff;
+}
+
+.time-query-wrapper > div {
+  padding: 10px;
+}
+
+.time-query-wrapper > div > div:last-child {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.datetime-picker input {
+  padding: 5px;
+  font-size: 1rem;
+  width: 215px;
+  text-align: center;
+  color: #2b2b2b;
+  border-radius: 3px;
+  border: 1px solid transparent !important;
+  transition: border .2s linear;
+}
+
+.time-query-labels > div {
+  padding: 5px;
+}
+
+.time-query-labels span {
+  font-size: 18px;
+  cursor: default;
+}
+
+.rdtPicker {
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  height: 0;
+  display: block !important;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+  transition: all .2s linear;
+}
+
+.rdtOpen .rdtPicker {
+  height: auto;
+  left: 285px;
+  top: 0;
+  border-radius: 3px;
+  z-index: 200;
+}
+
+.rdtOpen input {
+  border: 1px solid #21bda8 !important;
+}
+
+.rdtOpen .rdtPicker .rdtDays {
+  height: auto;
+}
+
+.rdtTime, .rdtDays, .rdtMonths, .rdtYears{
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #21bda8;
+}
+
+.rdtPicker td.rdtActive, .rdtPicker td.rdtActive:hover {
+  background-color: #21bda8;
+}
+
+.rdtDay.in-selecting-range {
+  background-color: rgba(150, 150, 150, 0.4);
+}
+
+.rdtPicker td {
+  cursor: pointer;
+  transition: background-color .2s linear;
+}
+
+.rdtPicker td.rdtToday:before {
+  border-bottom: 7px solid #21bda8;
+}
+
+.rdtPicker .dow {
+  cursor: default;
+}
+
+.datetime-picker.rdtOpen::after {
+  height: 1px;
+  width: 60px;
+  top: 50%;
+  position: absolute;
+  background-color: #21bda8;
+  content: '';
+}

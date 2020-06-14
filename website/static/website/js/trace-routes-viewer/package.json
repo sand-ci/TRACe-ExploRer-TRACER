@@ -1,0 +1,57 @@
+{
+  "name": "trace-routes-viewer",
+  "version": "1.0.0",
+  "description": "Tool for network paths monitoring",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ETretyakov/trace-routes-viewer.git"
+  },
+  "keywords": [
+    "trace",
+    "routes",
+    "network",
+    "paths",
+    "graphs",
+    "force-directed"
+  ],
+  "author": "Tretyakov E.S.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ETretyakov/trace-routes-viewer/issues"
+  },
+  "homepage": "https://github.com/ETretyakov/trace-routes-viewer#readme",
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "chartjs-chart-box-and-violin-plot": "^2.3.0",
+    "moment": "^2.24.0",
+    "react": "^16.12.0",
+    "react-chartjs-2": "^2.9.0",
+    "react-datetime": "^2.16.3",
+    "react-datetime-range-picker": "^2.0.5",
+    "react-dom": "^16.12.0",
+    "react-force-graph": "^1.32.2",
+    "react-perfect-scrollbar": "^1.5.6",
+    "react-scripts": "^3.3.1",
+    "three": "latest"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

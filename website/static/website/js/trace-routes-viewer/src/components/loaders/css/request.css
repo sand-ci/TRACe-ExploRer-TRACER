@@ -1,0 +1,138 @@
+.loader {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.loader.hidden {
+  display: none;
+}
+
+.loader-inner {
+  background-color: white;
+  width: 220px;
+  height: 200px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #cecece;
+  padding-top: 20px;
+}
+
+.container,
+.dot-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.container {
+  transform-origin: center;
+  animation: anirotate 10s linear infinite;
+}
+
+.dot-container {
+  position: absolute;
+  border: 0 solid #21bda8;
+  border-radius: 50px;
+}
+.dot-container:nth-child(2) {
+  transform: rotate(40deg);
+}
+.dot-container:nth-child(2) .dot {
+  animation-delay: -0.5s;
+}
+.dot-container:nth-child(3) {
+  transform: rotate(80deg);
+}
+.dot-container:nth-child(3) .dot {
+  animation-delay: -1s;
+}
+
+.dot {
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  background: #484848;
+  border-radius: 5px;
+  transform: translate(0, 0);
+}
+
+.dot.src {
+  background: #ff2b83;
+}
+
+.dot.missed {
+  background: #ff832b;
+}
+
+.dot.src-dest {
+  background: #ad2bff;
+}
+
+.dot.dest {
+  background: #0a7cb3;
+}
+
+.dot:nth-child(1) {
+  top: 0;
+  left: calc(50% - 5px);
+  animation: ani1 2s infinite;
+}
+.dot:nth-child(2) {
+  bottom: calc(28% - 5px);
+  left: calc(11% - 5px);
+  animation: ani2 2s infinite;
+}
+.dot:nth-child(3) {
+  bottom: calc(28% - 5px);
+  right: calc(11% - 5px);
+  animation: ani3 2s infinite;
+}
+
+[hidden] {
+  display: none;
+}
+
+@keyframes anirotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-359deg);
+  }
+}
+@keyframes ani1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-40px, 67px);
+  }
+}
+@keyframes ani2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(77px, 0);
+  }
+}
+@keyframes ani3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-39px, -67px);
+  }
+}
+
+.loader p {
+  text-align: center;
+  font-variant: all-small-caps;
+  font-size: 24px;
+}

@@ -1,0 +1,370 @@
+button,
+button:focus,
+button:active{
+  border:1px solid transparent;
+  outline:none;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
+
+.items-filter {
+  font-family: 'Ubuntu', sans-serif;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 3px;
+  max-height: 0;
+  transition:  max-height .25s ease-out;
+}
+
+.items-filter-wrapper {
+  margin: 10px;
+}
+
+.items-filter.shown {
+  height: auto;
+  max-height: 650px;
+}
+
+.items-filter-header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 6fr 1fr;
+  grid-template-columns: 1fr 6fr 1fr;
+}
+
+.items-filter-reset {
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-grid-column-align: center;
+  justify-items: center;
+}
+
+.items-filter-reset button {
+  background-color: #fff;
+  cursor: pointer;
+  transition: transform .2s linear;
+  padding: 0;
+}
+
+.items-filter-reset button.rotated {
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.items-filter-reset button i {
+  font-size: 1rem;
+}
+
+.items-filter-title {
+
+}
+
+.items-filter-title h3 {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: default;
+}
+
+.items-filter-searchbar {
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  margin: 5px 0;
+}
+
+.items-filter-searchbar span {
+  display: inline-block;
+  font-size: .9rem;
+  font-weight: 100;
+  margin-right: 5px;
+  width: 50px;
+  cursor: default;
+}
+
+.items-filter-searchbar-input {
+  width: 190px;
+  box-shadow: inset 0 0 3px #b3b3b3;
+  border: 0;
+  padding: 10px 25px 10px 10px;
+  border-radius: 3px;
+  font-weight: 100;
+}
+
+.reset-searchbar-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  background: #fff;
+  padding: 0;
+}
+
+.reset-searchbar-btn i {
+  font-size: .8rem;
+  color: #a4a4a4;
+}
+
+.reset-searchbar-btn:hover i {
+  color: #656565;
+}
+
+.items-filter-sortbar {
+  margin: 15px 0 0 0;
+}
+
+.items-filter-sortbar-field {
+  position: relative;
+  background-color: #484848;
+  cursor: pointer;
+  padding: 0;
+}
+
+.items-filter-sortbar-field:active, .items-filter-sortbar-field:focus {
+  background-color: #484848;
+}
+
+.items-filter-sortbar-field h5 {
+  margin: 0;
+  padding: 5px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.items-filter-sortbar-field span {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  color: #fff;
+}
+
+.items-filter-sortbar-field span i {
+  font-size: .7rem;
+  transition: transform .2s linear;
+}
+
+.items-filter-sortbar-field.rotated span i {
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.items-filter-sortbar-field.name {
+  width: 184px;
+  margin-right: 5px;
+}
+
+.items-filter-sortbar-field.count {
+  width: 91px;
+}
+
+.filter-content {
+  min-height: 320px;
+}
+
+.filter-content-list {
+  padding: 0;
+  list-style: none;
+  margin: 5px 0;
+}
+
+.filter-content-list li {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 4fr 1fr;
+  grid-template-columns: 4fr 1fr;
+  padding: 5px;
+  border: 1px solid #fff;
+  margin: 1px 0;
+  background-color: #f4f4f4;
+  font-weight: 100;
+  color: #2b2b2b;
+  cursor: pointer;
+}
+
+.filter-content-list li.focused {
+  border: 1px solid #21bda8;
+}
+
+.filter-content-list li.pressed {
+  border: 1px solid #21bda8 !important;
+  background-color: #21bda8 !important;
+  color: #fff !important;
+}
+
+.filter-content-list li.pressed .filter-item-name {
+  border-right: 1px solid #fff;
+}
+
+.text-truncate {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+li.pressed .text-truncate {
+  text-overflow: initial;
+  overflow: unset;
+  background: #21bda8;
+}
+
+.filter-item.no-data {
+  cursor: default;
+  text-align: center;
+}
+
+.filter-item.no-data span {
+  width: 288px;
+  text-align: center;
+  font-size: .8rem;
+  text-transform: uppercase;
+}
+
+.filter-item-name {
+  padding-right: 5px;
+  border-right: 1px solid #1a1a1a;
+}
+
+.filter-name-count {
+  width: 86px;
+  text-align: center;
+}
+
+.items-filter-paginator {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 6fr 1fr;
+  grid-template-columns: 1fr 6fr 1fr;
+  padding: 10px 0;
+}
+
+.items-filter-paginator button {
+  background: #fff;
+  padding: 0;
+}
+
+.items-filter-paginator button i {
+  font-size: .8rem;
+}
+
+.page-numbers {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-weight: 100;
+}
+
+.page-numbers span {
+  cursor: default;
+}
+
+.items-filter-paginator-input {
+  width: 40px;
+  text-align: center;
+  padding: 5px;
+  margin: 0 5px;
+  border: 0;
+  box-shadow: inset 0 0 3px #b3b3b3;
+  border-radius: 3px;
+}
+
+.items-filter-statistics {
+  font-size: .8rem;
+  text-align: center;
+  font-weight: 100;
+}
+
+.items-filter-statistics p {
+  margin: 5px;
+  cursor: default;
+}
+
+.selected-item {
+  padding: 3px;
+  margin: 2px;
+  background-color: #21bda8;
+  border-radius: 3px;
+  color: #fff;
+  max-width: 240px;
+}
+
+.selected-item:hover {
+  -webkit-text-decoration-line: line-through;
+  text-decoration-line: line-through;
+}
+
+.selected-items-box {
+  height: 60px;
+  padding: 5px;
+  box-shadow: inset 0 0 3px #b3b3b3;
+  border-radius: 3px;
+  margin: 10px 0;
+}
+
+.selected-items-box-wrapper {
+  border-bottom: 1px solid #b3b3b3;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.selected-items-box .scrollbar-container {
+  margin-left: 25px;
+}
+
+.item-box-scroll-content {
+  margin-right: 25px;
+}
+
+.no-data-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  height: 60px;
+  cursor: default;
+}
+
+.no-data-container .no-data {
+  font-weight: 100;
+  font-size: .9rem;
+  font-variant: all-small-caps;
+}
+
+.selected-items-box-empty {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 100;
+}
+
+.selected-items-box-empty button {
+  background-color: #fff;
+  padding: 0;
+  cursor: pointer;
+}
+
+.selected-items-box-empty button i {
+  font-size: .8rem;
+  color: #a4a4a4;
+}
+
+.selected-items-box-empty:hover i {
+  color: #656565;
+}
+
+.search-query-highlight {
+  color: #21bda8;
+}

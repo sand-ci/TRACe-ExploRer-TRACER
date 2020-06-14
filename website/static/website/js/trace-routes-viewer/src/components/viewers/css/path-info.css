@@ -1,0 +1,149 @@
+.path-viewer-fragments {
+  padding: 10px;
+}
+
+.path-fragment.node {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  align-items: center;
+  justify-items: center;
+  min-height: 35px;
+  background-color: #f4f4f4;
+  padding: 3px 0;
+  border-top: 1px solid #484848;
+  border-bottom: 1px solid #484848;
+  font-size: 14px;
+  cursor: default;
+}
+
+.path-fragment.node .node-info {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.path-fragment .node-type {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 0 5px;
+  margin: 0 5px 0 0;
+  width: 70px;
+}
+
+.path-fragment .node-type span {
+  background-color: #484848;
+  padding: 3px;
+  border-radius: 3px;
+  width: 70px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.path-info-container .path-viewer-fragments {
+  height: 665px;
+}
+
+.path-viewer-fragments-content {
+  height: 100%;
+  margin-right: 15px;
+}
+
+.path-fragment span {
+  cursor: default;
+}
+.path-fragment .node-info span {
+  cursor: default;
+  text-overflow: ellipsis;
+  width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+}
+
+.path-fragment.missed .node-type span {
+  background-color: #ff832b;
+  color: #ffffff;
+}
+
+.path-fragment.incomplete .node-type span {
+  background-color: #b81100;
+  color: #ffffff;
+}
+
+.path-fragment.stats.hop {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.path-fragment.stats.hop.active {
+  background-color: #21bda8;
+  color: #fff;
+}
+
+.path-fragment .stats-group.less .label,
+.path-fragment .stats-group.more .label {
+  display: inline-block;
+  width: 25px;
+}
+
+.path-fragment .stats-group.middle {
+  border-left: 1px solid;
+  border-right: 1px solid;
+  width: 100%;
+}
+
+.path-fragment .stats-group.middle p {
+  text-align: center;
+  margin: 1px;
+  cursor: default;
+}
+
+.path-fragment .stats-item .label {
+  font-size: 12px;
+  padding: 3px;
+  margin: 1px;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+.path-fragment .stats-item .value {
+  font-size: 12px;
+}
+
+.path-fragment .stats-item.median {
+  text-align: center;
+}
+
+.path-viewer-fragments-content .no-data {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+  font-size: 16px;
+  font-feature-settings: "smcp", "c2sc";
+  font-variant: all-small-caps;
+  margin-left: 15px;
+}
+
+.asn-container {
+  position: relative;
+}
+
+.asn-label {
+  width: 175px;
+  left: -70px;
+  position: absolute;
+  background-color: #484848;
+  color: #fff;
+  padding: 5px;
+  font-size: 10px;
+  border-radius: 3px;
+  z-index: 100;
+}
+
+.asn-website {
+  color: #fff;
+}
