@@ -46,6 +46,9 @@ ALLOWED_HOSTS = config.get("ALLOWED_HOSTS").split(",")
 
 # ElasticSearch
 ES_HOSTS = config.get("ES_HOSTS").split(",")
+# FIXME Temporary solution for secured ES connection
+ES_HOSTS = [host.replace("http:", "https:") for host in ES_HOSTS]
+
 ES_USER = config.get("ES_USER")
 ES_PASSWORD = config.get("ES_PASSWORD")
 ES_INDEX = config.get("ES_INDEX")
