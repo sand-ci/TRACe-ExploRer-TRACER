@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ETretyakov/trace-routes-viewer/precache-manifest.b5c81dd786f62669c5d1e7b2c1e4d8a5.js"
+  "/ETretyakov/trace-routes-viewer/precache-manifest.9b96ec2a3683da23dbfbfef9e2f7ed9f.js"
 );
 
 self.addEventListener('message', (event) => {

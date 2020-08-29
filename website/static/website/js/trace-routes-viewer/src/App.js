@@ -6,7 +6,7 @@ import PathsTable from "./components/tables/paths-table";
 import PathChart from "./components/viewers/path-chart";
 import PathInfo from "./components/viewers/path-info";
 import ForceDirectedGraph from "./components/graphs/force-directed-graph";
-import {dispatchUrl, packUrl} from "./utils/common";
+import {dispatchUrl, packUrl, reformAggregations} from "./utils/common";
 import RequestLoader from "./components/loaders/request";
 import FiltersPreview from "./components/filters/preview";
 import './App.css';
@@ -48,7 +48,9 @@ class App extends Component {
       },
       pathNavigation: {
         selectedHop: null
-      }
+      },
+      ipv4Items: null,
+      ipv6Items: null
     };
 
     this.pathChartRef = React.createRef();
@@ -70,6 +72,10 @@ class App extends Component {
     let urlParams = window.location.search;
     let query;
     let response;
+    let aggregations_response;
+    let aggregations_content;
+    let ipv4Items = {};
+    let ipv6Items = {};
     let response_content;
     let retry = 0;
 
@@ -78,6 +84,7 @@ class App extends Component {
         if (!urlParams.length) {
           response = await fetch(`${config.url.API_URL}query`);
           response_content = await response.json();
+
           query = {...this.state.query};
           query.datetimeFrom = new Date(response_content["datetime_range"][0]);
           query.datetimeTo = new Date(response_content["datetime_range"][1])
@@ -86,6 +93,14 @@ class App extends Component {
           response_content = await response.json();
           query = dispatchUrl(urlParams);
         }
+
+        aggregations_response = await fetch(`${config.url.API_URL}aggregations/true`);
+        aggregations_content = await aggregations_response.json();
+        ipv4Items = reformAggregations(aggregations_content["es_data"]["aggregations"])
+
+        aggregations_response = await fetch(`${config.url.API_URL}aggregations/false`);
+        aggregations_content = await aggregations_response.json();
+        ipv6Items = reformAggregations(aggregations_content["es_data"]["aggregations"])
 
         this.preLoaderContainer.current.classList.add("hidden");
         break;
@@ -106,7 +121,7 @@ class App extends Component {
         window.history.pushState(null, 'queried', window.location.origin + urlParams);
         const responseData = response_content['es_data'];
         const pathsStats = response_content['stats'];
-        this.setState({query, responseData, pathsStats, currentUrl})
+        this.setState({query, responseData, pathsStats, currentUrl, ipv4Items, ipv6Items})
         if (this.preLoaderErrors.current) {
           this.preLoaderContainer.current.classList.add("hidden")
         }
@@ -217,9 +232,9 @@ class App extends Component {
 
     let itemsFilters = [
       {title: "Sources", id: "sources", hideIPs: false},
-      {title: "Sources hosts", id: "sources_hosts", hideIPs: true},
+      {title: "Sources hosts", id: "sources_hosts", hideIPs: false},
       {title: "Destinations", id: "destinations", hideIPs: false},
-      {title: "Destinations hosts", id: "destinations_hosts", hideIPs: true}
+      {title: "Destinations hosts", id: "destinations_hosts", hideIPs: false}
     ];
 
     return (
@@ -254,6 +269,8 @@ class App extends Component {
                 strikeQuery={this.getData}
                 query={this.state.query}
                 itemsFilters={itemsFilters}
+                ipv4Items={this.state.ipv4Items}
+                ipv6Items={this.state.ipv6Items}
                 aggregations={this.state.responseData.aggregations}
                 onQueryChange={this.handleQueryChange}
               />

@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8339eadf4f56fab25f86cd2c71614cd0",
+    "revision": "9cc33b5afbcaea1971d7e60b08f7eea8",
     "url": "/ETretyakov/trace-routes-viewer/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ETretyakov/trace-routes-viewer/static/css/2.30f3cf29.chunk.css"
   },
   {
-    "revision": "a0a8431c4672f50f6ccd",
-    "url": "/ETretyakov/trace-routes-viewer/static/css/main.55ac3d52.chunk.css"
+    "revision": "dd4f9e22f3b488b2ef60",
+    "url": "/ETretyakov/trace-routes-viewer/static/css/main.71d96252.chunk.css"
   },
   {
     "revision": "61d2a35241a670fbce16",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ETretyakov/trace-routes-viewer/static/js/2.8a65781b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a0a8431c4672f50f6ccd",
-    "url": "/ETretyakov/trace-routes-viewer/static/js/main.3acd2372.chunk.js"
+    "revision": "dd4f9e22f3b488b2ef60",
+    "url": "/ETretyakov/trace-routes-viewer/static/js/main.bf1b2c4d.chunk.js"
   },
   {
     "revision": "3243e09a99a76abd1564",

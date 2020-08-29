@@ -308,6 +308,7 @@ class FilterContent extends Component {
             key={item.name}
             name={item.name}
             count={item.count}
+            notHere={item.notHere}
             weight={item.weight}
             searchQuery={this.props.searchQuery}
             itemIdx={i}
@@ -384,7 +385,8 @@ class ContentRow extends Component {
   render() {
     let additionalClasses = [
       this.props.focused ? "focused": "",
-      this.props.pressed ? "pressed": ""
+      this.props.pressed ? "pressed": "",
+      this.props.notHere ? "notHere": ""
     ].join(" ");
 
     return(
@@ -618,39 +620,57 @@ class ItemsFilter extends Component {
     })
   }
 
-  filterItems() {
-    let items = [];
+  filterItems(items) {
+    let filteredItems = [];
 
     if (this.state.searchQuery) {
-      for (let i = 0; i < this.props.items.length; i++) {
-        let item = this.props.items[i];
+      for (let i = 0; i < items.length; i++) {
+        let item = items[i];
         let weight = item.name.toLowerCase().indexOf(this.state.searchQuery);
         if (weight >= 0) {
           item.weight = weight;
-          items.push(item)
+          filteredItems.push(item)
         }
       }
     } else {
       if (this.props.hideIPs) {
-        for (let i = 0; i < this.props.items.length; i++) {
-          let item = this.props.items[i];
+        for (let i = 0; i < items.length; i++) {
+          let item = items[i];
           if (!IfIPv4(item.name)) {
-            items.push(item)
+            filteredItems.push(item)
           }
         }
       } else {
-        items = this.props.items
+        filteredItems = items
       }
     }
 
-    return items
+    return filteredItems
+  }
+
+  concatenateItems(items, allItems) {
+    const concatenatedItems = items;
+    const buffer = [];
+
+    items.forEach(item => {
+      buffer.push(item.name)
+    })
+
+    allItems.forEach(item => {
+      if (buffer.indexOf(item.name) < 0) {
+        item.notHere = true
+        concatenatedItems.push(item)
+      }
+    })
+
+    return concatenatedItems
   }
 
   calculateStatistics(items) {
     if (items.length === 0) {
       return {
         itemsShown: items.length,
-        itemsTotal: this.props.items.length,
+        itemsTotal: this.props.allItems.length,
         shownFrom: 0,
         shownTo: 0
       }
@@ -658,7 +678,7 @@ class ItemsFilter extends Component {
       const shownFrom = (this.state.currentPage.value - 1) * this.state.paginateBy + 1;
       return {
         itemsShown: items.length,
-        itemsTotal: this.props.items.length,
+        itemsTotal: this.props.allItems.length,
         shownFrom: shownFrom,
         shownTo: shownFrom + this.state.paginateBy > items.length ? items.length: shownFrom + this.state.paginateBy - 1
       };
@@ -678,6 +698,13 @@ class ItemsFilter extends Component {
     if (items.length) {
       items = this.filterItems(items);
     }
+
+    let allItems = this.props.allItems;
+    if (allItems.length) {
+      allItems = this.filterItems(allItems);
+    }
+
+    items = this.concatenateItems(items, allItems)
 
     const statistics = this.calculateStatistics(items);
     const maxPage = this.calculateMaxPage(items);
@@ -720,6 +747,7 @@ class ItemsFilter extends Component {
                 filterID={this.props.filterID}
                 searchQuery={this.state.searchQuery}
                 items={items}
+                allItems={allItems}
                 currentPage={this.state.currentPage}
                 onJumpToPageChange={this.handleJumpToPage}
                 onItemFocused={this.handleItemFocused}

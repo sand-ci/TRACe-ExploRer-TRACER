@@ -11,6 +11,36 @@ from elasticsearch import Elasticsearch
 
 from Tracer.settings import ES_HOSTS, ES_USER, ES_PASSWORD, ES_INDEX, DEBUG
 
+import datetime
+
+
+aggregations = {
+    "sources": {
+        "terms": {
+            "field": "src",
+            "size": 10000
+        }
+    },
+    "sources_hosts": {
+        "terms": {
+            "field": "src_host",
+            "size": 10000
+        }
+    },
+    "destinations": {
+        "terms": {
+            "field": "dest",
+            "size": 10000
+        }
+    },
+    "destinations_hosts": {
+        "terms": {
+            "field": "dest_host",
+            "size": 10000
+        }
+    }
+}
+
 
 def track_error(func):
     def wrapped(*args, **kwargs):
@@ -101,11 +131,14 @@ def calculate_stats(es_data):
     return stats
 
 
-class QueryES(View):
+class ESView(View):
     if ES_USER and ES_PASSWORD:
         es_connection = Elasticsearch(hosts=ES_HOSTS, http_auth=(ES_USER, ES_PASSWORD))
     else:
         es_connection = Elasticsearch(hosts=ES_HOSTS)
+
+
+class QueryES(ESView):
 
     def get(self, request):
         query = self.prepare_query(request)
@@ -135,32 +168,7 @@ class QueryES(View):
             "timestamp": "desc"
         }
 
-        query["aggs"] = {
-            "sources": {
-                "terms": {
-                    "field": "src",
-                    "size": 10000
-                }
-            },
-            "sources_hosts": {
-                "terms": {
-                    "field": "src_host",
-                    "size": 10000
-                }
-            },
-            "destinations": {
-                "terms": {
-                    "field": "dest",
-                    "size": 10000
-                }
-            },
-            "destinations_hosts": {
-                "terms": {
-                    "field": "dest_host",
-                    "size": 10000
-                }
-            }
-        }
+        query["aggs"] = aggregations
 
         data["body"] = query
 
@@ -183,6 +191,7 @@ class QueryES(View):
 
         es_data = self.es_connection.search(index=ES_INDEX, body=query)
         timestamps = [hit["_source"]["timestamp"] for hit in es_data["hits"]["hits"]]
+
         query["query"]["bool"]["must"].append({
             "range": {
                 "timestamp": {
@@ -225,6 +234,34 @@ class QueryES(View):
             ]
 
         return data
+
+
+class GetAllFilterItems(ESView):
+
+    def get(self, request, ipv4):
+
+        query = {
+            "aggs": aggregations,
+            "query": {
+                "bool": {
+                    "must": [
+                        {
+                            "term": {
+                                "ipv6": False if ipv4.lower() == "true" else True
+                            }
+                        }
+                    ]
+                }
+            },
+            "size": 10000
+        }
+
+        es_data = self.es_connection.search(index=ES_INDEX, body=query)
+        data = {
+            "es_data": es_data
+        }
+
+        return JsonResponse(data)
 
 
 class GetASN(View):

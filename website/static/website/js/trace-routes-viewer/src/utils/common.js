@@ -177,6 +177,26 @@ function PackUrl(query) {
   return `?query=${JSON.stringify(newQuery)}`;
 }
 
+function ReformAggregations(aggregations) {
+  const reformedItems = {}
+
+  Object.keys(aggregations).forEach(item => {
+    reformedItems[item] = [];
+    aggregations[item]["buckets"].forEach(i => {
+      reformedItems[item].push({
+        "name": i.key,
+        "count": 0
+      })
+    })
+  })
+
+  return reformedItems
+}
+
+export const reformAggregations = (aggregations) => {
+  return ReformAggregations(aggregations)
+};
+
 export const dispatchUrl = (url) => {
   return DispatchUrl(url)
 };

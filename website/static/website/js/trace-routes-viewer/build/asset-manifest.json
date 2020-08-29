@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/ETretyakov/trace-routes-viewer/static/css/main.55ac3d52.chunk.css",
-    "main.js": "/ETretyakov/trace-routes-viewer/static/js/main.3acd2372.chunk.js",
-    "main.js.map": "/ETretyakov/trace-routes-viewer/static/js/main.3acd2372.chunk.js.map",
+    "main.css": "/ETretyakov/trace-routes-viewer/static/css/main.71d96252.chunk.css",
+    "main.js": "/ETretyakov/trace-routes-viewer/static/js/main.bf1b2c4d.chunk.js",
+    "main.js.map": "/ETretyakov/trace-routes-viewer/static/js/main.bf1b2c4d.chunk.js.map",
     "runtime-main.js": "/ETretyakov/trace-routes-viewer/static/js/runtime-main.f117b6f3.js",
     "runtime-main.js.map": "/ETretyakov/trace-routes-viewer/static/js/runtime-main.f117b6f3.js.map",
     "static/css/2.30f3cf29.chunk.css": "/ETretyakov/trace-routes-viewer/static/css/2.30f3cf29.chunk.css",
     "static/js/2.8a65781b.chunk.js": "/ETretyakov/trace-routes-viewer/static/js/2.8a65781b.chunk.js",
     "static/js/2.8a65781b.chunk.js.map": "/ETretyakov/trace-routes-viewer/static/js/2.8a65781b.chunk.js.map",
     "index.html": "/ETretyakov/trace-routes-viewer/index.html",
-    "precache-manifest.b5c81dd786f62669c5d1e7b2c1e4d8a5.js": "/ETretyakov/trace-routes-viewer/precache-manifest.b5c81dd786f62669c5d1e7b2c1e4d8a5.js",
+    "precache-manifest.9b96ec2a3683da23dbfbfef9e2f7ed9f.js": "/ETretyakov/trace-routes-viewer/precache-manifest.9b96ec2a3683da23dbfbfef9e2f7ed9f.js",
     "service-worker.js": "/ETretyakov/trace-routes-viewer/service-worker.js",
     "static/css/2.30f3cf29.chunk.css.map": "/ETretyakov/trace-routes-viewer/static/css/2.30f3cf29.chunk.css.map",
-    "static/css/main.55ac3d52.chunk.css.map": "/ETretyakov/trace-routes-viewer/static/css/main.55ac3d52.chunk.css.map",
+    "static/css/main.71d96252.chunk.css.map": "/ETretyakov/trace-routes-viewer/static/css/main.71d96252.chunk.css.map",
     "static/js/2.8a65781b.chunk.js.LICENSE.txt": "/ETretyakov/trace-routes-viewer/static/js/2.8a65781b.chunk.js.LICENSE.txt",
     "static/media/iconmonstr-iconic-font.min.css": "/ETretyakov/trace-routes-viewer/static/media/iconmonstr-iconic-font.76abee66.ttf",
     "static/media/App.css": "/ETretyakov/trace-routes-viewer/static/media/logo.3852501a.svg"
@@ -21,7 +21,7 @@
     "static/js/runtime-main.f117b6f3.js",
     "static/css/2.30f3cf29.chunk.css",
     "static/js/2.8a65781b.chunk.js",
-    "static/css/main.55ac3d52.chunk.css",
-    "static/js/main.3acd2372.chunk.js"
+    "static/css/main.71d96252.chunk.css",
+    "static/js/main.bf1b2c4d.chunk.js"
   ]
 }

@@ -122,6 +122,7 @@ class ItemsQuery extends Component {
           hideIPs={itemFilter.hideIPs}
           shownFilter={this.state.shownFilter === idx}
           items={this.remapItems(itemFilter.id)}
+          allItems={this.props.query.IPv6 ? this.props.ipv6Items[itemFilter.id]: this.props.ipv4Items[itemFilter.id]}
           selectedItems={this.props.query[itemFilter.id]}
           onItemsFilterSelect={this.handleItemsFilterSelect}
           onItemsFilterDelete={this.handleItemsFilterDelete}
