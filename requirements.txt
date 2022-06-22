@@ -4,7 +4,7 @@ chardet==3.0.4
 Django==3.0.7
 elasticsearch==7.7.0
 idna==2.9
-numpy==1.18.4
+numpy==1.22.0
 pytz==2020.1
 requests==2.23.0
 sqlparse==0.3.1
