@@ -32,7 +32,7 @@
     "react-dom": "^16.12.0",
     "react-force-graph": "^1.32.2",
     "react-perfect-scrollbar": "^1.5.6",
-    "react-scripts": "^3.3.1",
+    "react-scripts": "^5.0.1",
     "three": "latest"
   },
   "devDependencies": {},
